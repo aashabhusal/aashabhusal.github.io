@@ -93,6 +93,43 @@ a:hover { color: var(--accent-dk); text-decoration: underline; }
 .stat__num { display: block; font-family: var(--serif); font-size: 2.2rem; color: var(--accent); line-height: 1; margin-bottom: 10px; }
 .stat__label { display: block; font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
 
+.research__more { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ---------- RESEARCH DETAIL PAGE ---------- */
+.report { padding: 56px 0 20px; }
+.report__eyebrow { color: var(--accent); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.report__title { font-family: var(--serif); font-size: 2rem; line-height: 1.25; margin-bottom: 12px; }
+.report__meta { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+.report__meta strong { color: var(--ink); font-weight: 600; }
+
+.back-link { display: inline-block; margin-bottom: 8px; font-size: 0.9rem; }
+
+.report-section { padding: 30px 0; border-top: 1px solid var(--line); }
+.report-section:first-of-type { border-top: none; }
+.report-section h2 { font-size: 1.4rem; margin-bottom: 14px; }
+.report-section h3 { font-size: 1.05rem; margin: 18px 0 8px; color: var(--ink); }
+.report-section p { color: var(--ink); margin-bottom: 14px; }
+.report-section p:last-child { margin-bottom: 0; }
+.report-section ul { margin: 0 0 14px 20px; }
+.report-section li { margin-bottom: 7px; }
+
+/* comparison table */
+.table-wrap { overflow-x: auto; margin: 6px 0 18px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 480px; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.data-table thead th { font-family: var(--sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 600; }
+.data-table tbody th { font-weight: 600; color: var(--ink); }
+.data-table td { color: var(--muted); }
+.data-table tr:last-child td, .data-table tr:last-child th { border-bottom: none; }
+.data-table .col-nabil { color: var(--accent-dk); font-weight: 500; }
+
+/* callout */
+.callout { background: var(--bg-alt); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 4px 0 16px; }
+.callout p { margin: 0; color: var(--ink); }
+.callout strong { color: var(--accent-dk); }
+
+.limitations { color: var(--muted); font-size: 0.95rem; }
+
 /* ---------- SKILLS ---------- */
 .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 40px; }
 .skills__group h3 { font-size: 1.05rem; margin-bottom: 12px; color: var(--ink); }
