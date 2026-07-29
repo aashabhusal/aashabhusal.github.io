@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methods — Capital Structure Study | Aasha Bhusal</title>
+  <meta name="description" content="How the Nabil Bank vs Rastriya Banijya Bank capital structure study was designed: audited-only data, ten bank-years, twenty-six integrity checks, and why five years rather than one.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Methods — Nabil Bank vs Rastriya Banijya Bank, FY 2077/78–2081/82">
+  <meta property="og:description" content="Audited figures only. Audited profit ran 12–27% below the unaudited quarterly numbers in every year, for both banks.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a class="visually-hidden skip-link" href="#m1">Skip to the methodology</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="index.html">Aasha&nbsp;Bhusal</a>
+      <nav class="nav__links">
+        <a href="index.html#about">About</a>
+        <a href="research.html">Findings</a>
+        <a href="methods.html">Methods</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ TITLE ============ -->
+  <section class="report">
+    <div class="container">
+      <a class="back-link" href="research.html">← Back to the findings</a>
+      <p class="report__eyebrow">Final-year BBS Research · Methods</p>
+      <h1 class="report__title">How the capital structure of Nepal's largest private bank and its largest government bank was compared</h1>
+      <p class="report__meta">
+        <strong>Nabil Bank</strong> (private) vs <strong>Rastriya Banijya Bank</strong> (government)<br>
+        Five fiscal years: <strong>FY 2077/78 – 2081/82</strong> · ten bank-years · <strong>audited figures only</strong><br>
+        Shanker Dev Campus, Tribhuvan University · Supervised by Prof. Durga Datt Pathak
+      </p>
+      <nav class="report-nav" aria-label="Report sections">
+        <a href="research.html">Findings</a>
+        <a href="methods.html" aria-current="page">Methods</a>
+      </nav>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- ============ CONTENTS ============ -->
+    <nav class="toc" aria-label="Contents">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#m1">What was studied</a></li>
+        <li><a href="#m2">Why it was done</a></li>
+        <li><a href="#m3">Framework</a></li>
+        <li><a href="#m4">Design</a></li>
+        <li><a href="#audited">Data: audited only</a></li>
+        <li><a href="#m6">What was measured</a></li>
+        <li><a href="#m7">Verification</a></li>
+        <li><a href="#m8">Limitations</a></li>
+      </ol>
+    </nav>
+
+    <!-- ============ 1. WHAT WAS STUDIED ============ -->
+    <section id="m1" class="report-section">
+      <h2>1. What was studied</h2>
+      <p>
+        Two commercial banks of similar size, operating under identical Nepal Rastra Bank rules, differing on
+        one variable: <strong>who owns them.</strong>
+      </p>
+
+      <div class="table-wrap bleed">
+        <table class="data-table">
+          <caption>The two banks compared</caption>
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col" class="n-nabil">Nabil Bank</th>
+              <th scope="col" class="n-rbb">Rastriya Banijya Bank</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Ownership</th><td>Private, listed on NEPSE</td><td>Government of Nepal (99.97%), unlisted</td></tr>
+            <tr><th scope="row">Established</th><td>1984</td><td>1966</td></tr>
+            <tr><th scope="row">Total assets (FY 2081/82)</th><td>Rs. 636.79 bn</td><td>Rs. 585.65 bn</td></tr>
+            <tr><th scope="row">Paid-up capital</th><td>Rs. 27.06 bn</td><td>Rs. 15.64 bn</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Period:</strong> FY 2077/78 – FY 2081/82. Five years, ten bank-years, bank (standalone) figures.
+      </p>
+    </section>
+
+    <!-- ============ 2. WHY ============ -->
+    <section id="m2" class="report-section">
+      <h2>2. Why it was done</h2>
+      <p>Three claims about Nepali banking get repeated constantly and tested rarely:</p>
+      <ol>
+        <li>Private banks are the more aggressively leveraged.</li>
+        <li>Government banks hold the thicker capital cushion.</li>
+        <li>The private bank's higher returns are structural — a permanent feature of ownership.</li>
+      </ol>
+      <p>
+        Almost every version of these claims rests on <strong>one year of unaudited data</strong>. Both
+        shortcuts turn out to break the analysis. This study tests all three against a complete, audited,
+        five-year record.
+      </p>
+      <p>
+        The period itself is a stress test, not a quiet stretch: post-COVID recovery, the FY 2078/79 liquidity
+        squeeze, an industry-wide NPL spike, then falling interest rates. Profitability fell at both banks.
+        Good conditions to find out whether ownership actually matters.
+      </p>
+    </section>
+
+    <!-- ============ 3. FRAMEWORK ============ -->
+    <section id="m3" class="report-section">
+      <h2>3. Framework</h2>
+      <p>
+        Ownership and capital structure as the inputs, performance as the outcome, NRB capital rules as a
+        constraint binding on both.
+      </p>
+
+      <figure class="fig bleed">
+        <img src="figures/fig_1_1_framework.png" width="1466" height="686" decoding="async"
+             alt="A three-box diagram. Independent variables — ownership type, debt-to-equity ratio, capital adequacy ratio and equity composition — feed into a regulatory constraint box holding the NRB capital adequacy framework, an 11% minimum total CAR and a Rs. 8 bn minimum paid-up capital, which in turn feeds into dependent variables: financial performance, return on equity, return on assets and earnings per share.">
+        <figcaption>
+          <b>Figure 9.</b> Conceptual framework. The NRB capital adequacy rules constrain the leverage and
+          capital-buffer decisions of both banks.
+        </figcaption>
+      </figure>
+
+      <p>
+        Four theories generate the expectations tested here: <strong>Modigliani–Miller</strong> (1958, 1963),
+        <strong>trade-off</strong>, <strong>pecking-order</strong> (Myers 1984), and <strong>agency
+        cost</strong> (Jensen &amp; Meckling 1976). The empirical literature splits — Berger &amp; Bonaccorsi
+        di Patti (2006) find leverage helps bank efficiency up to a point; Siddik et al. (2017) find it hurts
+        performance. That unresolved direction is what makes an institution-level comparison worth doing.
+      </p>
+    </section>
+
+    <!-- ============ 4. DESIGN ============ -->
+    <section id="m4" class="report-section">
+      <h2>4. Design</h2>
+      <p>
+        <strong>Descriptive and analytical comparative case study.</strong> Two banks selected by purposive
+        sampling from all "A" class commercial banks — chosen as leading exemplars of each ownership type, not
+        as a random sample.
+      </p>
+
+      <h3>Why five years and not one</h3>
+      <p>
+        FY 2079/80 is the only year of the five in which Nabil is more leveraged than RBB — the result of a
+        one-off reserve injection that lifted RBB's equity from Rs. 32.68 bn to Rs. 50.74 bn in twelve months.
+        Sample that year alone and you conclude the private bank runs the riskier balance sheet. The full
+        series says the opposite in four years out of five. <strong>The multi-year design is
+        load-bearing.</strong>
+      </p>
+    </section>
+
+    <!-- ============ 5. DATA ============ -->
+    <section id="audited" class="report-section">
+      <h2>5. Data: audited only</h2>
+      <p>
+        All figures come from the banks' <strong>own published statements</strong> — annual reports, Q4
+        financial statements, Basel III disclosures, and NRB directives. No financial portals. Every figure
+        carries a source code back to a specific document.
+      </p>
+
+      <h3>The decision that changed the results</h3>
+      <p>
+        Nepali banks publish unaudited Q4 figures within a month of year-end. Audited figures land months
+        later. <strong>They differ — systematically, and always in the same direction.</strong>
+      </p>
+
+      <div class="table-wrap bleed">
+        <table class="data-table data-table--years">
+          <caption>Unaudited versus audited net profit after tax</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="th-label">Bank</th>
+              <th scope="col" class="th-label">Year</th>
+              <th scope="col">Unaudited profit</th>
+              <th scope="col">Audited profit</th>
+              <th scope="col">Gap</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="n-nabil">Nabil</th>
+              <td class="td-label">FY 2079/80</td>
+              <td>Rs. 7.52 bn</td><td>Rs. 6.40 bn</td><td>−14.9%</td>
+            </tr>
+            <tr>
+              <th scope="row" class="n-nabil">Nabil</th>
+              <td class="td-label">FY 2081/82</td>
+              <td>Rs. 7.13 bn</td><td>Rs. 5.92 bn</td><td class="is-key">−16.9%</td>
+            </tr>
+            <tr class="is-groupstart">
+              <th scope="row" class="n-rbb">RBB</th>
+              <td class="td-label">FY 2079/80</td>
+              <td>Rs. 4.92 bn</td><td>Rs. 3.60 bn</td><td>−26.9%</td>
+            </tr>
+            <tr>
+              <th scope="row" class="n-rbb">RBB</th>
+              <td class="td-label">FY 2081/82</td>
+              <td>Rs. 3.82 bn</td><td>Rs. 2.84 bn</td><td class="is-key">−25.7%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Audited profit is <strong>12–27% lower</strong> in every year for both banks. Audited CAR is 0.1–0.8
+        percentage points lower. Nabil's FY 2081/82 impairment charge rose 75% on audit.
+      </p>
+
+      <div class="callout">
+        <p>
+          <strong>This study uses audited figures exclusively — all five years, both banks.</strong> Anything
+          built on Q4 press figures overstates profit, ROE, ROA, EPS <em>and</em> capital adequacy.
+        </p>
+      </div>
+
+      <h3>One trap worth naming</h3>
+      <p>
+        Several portals reported RBB's FY 2081/82 "net profit" as <strong>Rs. 5.45 bn</strong>. That figure is
+        profit <em>before</em> tax. Audited profit after tax was <strong>Rs. 2.84 bn</strong> — barely half.
+        EPS derived from it (Rs. 34.87) is wrong; the real figure is <strong>Rs. 18.14</strong>. A portal's
+        "net profit" heading cannot be assumed to mean profit after tax.
+      </p>
+    </section>
+
+    <!-- ============ 6. WHAT WAS MEASURED ============ -->
+    <section id="m6" class="report-section">
+      <h2>6. What was measured</h2>
+
+      <div class="table-wrap bleed">
+        <table class="data-table">
+          <caption>Variables and formulas</caption>
+          <thead>
+            <tr>
+              <th scope="col">Variable</th>
+              <th scope="col">Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">D/E (broad)</th><td>Total liabilities ÷ Equity</td></tr>
+            <tr><th scope="row">D/E (narrow)</th><td>(Debentures + borrowings) ÷ Equity</td></tr>
+            <tr><th scope="row">Equity-to-assets</th><td>Equity ÷ Total assets × 100</td></tr>
+            <tr><th scope="row">CAR</th><td>Eligible capital ÷ Risk-weighted assets × 100</td></tr>
+            <tr><th scope="row">Tier 1 ratio</th><td>Core capital ÷ Risk-weighted assets × 100</td></tr>
+            <tr><th scope="row">ROE / ROA</th><td>Net profit after tax ÷ Equity / Total assets × 100</td></tr>
+            <tr><th scope="row">EPS</th><td>Net profit after tax ÷ Ordinary shares</td></tr>
+            <tr><th scope="row">Credit-to-deposit</th><td>Loans to customers ÷ Deposits × 100</td></tr>
+            <tr><th scope="row">Coefficient of variation</th><td>SD ÷ Mean × 100</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Deposits are 87–94% of a bank's liabilities, so D/E is reported on <strong>both</strong> a broad and a
+        narrow basis — the broad measure is dominated by depositor funding the bank never really "chose"; the
+        narrow one isolates deliberate borrowing.
+      </p>
+      <p>
+        <strong>Regulatory benchmarks:</strong> CAR ≥ 11%, Tier 1 ≥ 8.5%, paid-up capital ≥ Rs. 8 bn,
+        credit-to-deposit ≤ 90%.
+      </p>
+      <p>
+        <strong>Techniques:</strong> ratio analysis, year-by-year comparison, five-year trend analysis,
+        descriptive statistics (mean, SD, CV), and Karl Pearson correlation.
+      </p>
+
+      <div class="callout">
+        <p>
+          With <i>n</i> = 5, correlation coefficients are <strong>descriptive only</strong> — they show the
+          direction two series moved together. They are not significance tests and are never reported as such.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 7. VERIFICATION ============ -->
+    <section id="m7" class="report-section">
+      <h2>7. Verification</h2>
+      <p>
+        Three integrity checks ran on <strong>every one of the ten bank-years</strong> before any ratio was
+        computed:
+      </p>
+      <ol>
+        <li>Total assets = Total liabilities + Equity</li>
+        <li>Equity = Paid-up + Premium + Reserves + Retained earnings</li>
+        <li>Reported EPS reconciles with profit ÷ shares</li>
+      </ol>
+      <p>
+        <strong>All twenty-six checks pass.</strong> Largest deviation: 0.029% on the equity decomposition,
+        5.08% on one EPS reconciliation (weighted-average share count after a capital change).
+      </p>
+      <p>
+        Check 2 catches the most common error in bank comparisons — mixing an equity figure from one quarter
+        with a capital figure from another. A dataset that fails it cannot support ratio analysis, because the
+        denominators are wrong.
+      </p>
+      <p>
+        <strong>Gaps are shown as blanks, never estimated.</strong> Nabil's Tier 1 ratio is undisclosed after
+        FY 2078/79; NPL data is incomplete for both banks. Those cells stay empty.
+      </p>
+
+      <h3>Charts</h3>
+      <p>
+        Nothing was computed by hand. Every chart uses one fixed colour per bank throughout, plus marker shape
+        and line style as a secondary encoding — so they stay readable in greyscale and to colour-vision-deficient
+        readers. Regulatory thresholds are drawn as labelled reference lines rather than described in prose.
+      </p>
+    </section>
+
+    <!-- ============ 8. LIMITATIONS ============ -->
+    <section id="m8" class="report-section">
+      <h2>8. Limitations</h2>
+      <ul>
+        <li><strong>Two banks.</strong> Exemplars, not a representative sample — no statistical generalisation to the sector.</li>
+        <li><strong>Not perfectly comparable.</strong> RBB is unlisted, so market ratios (P/E, market-to-book) don't apply, and its EPS carries no valuation meaning.</li>
+        <li><strong>Structural break.</strong> Nabil's Nepal Bangladesh Bank acquisition (FY 2078/79) jumps its assets from Rs. 291 bn to Rs. 420 bn in one year.</li>
+        <li><strong><i>n</i> = 5.</strong> Correlations are directional, not significant.</li>
+        <li><strong>Incomplete series.</strong> Nabil Tier 1 after FY 2078/79; NPL for both banks in several years.</li>
+        <li><strong>Qualitative factors</strong> — governance, management quality, political context — acknowledged but outside a ratio-based study.</li>
+      </ul>
+    </section>
+
+    <p class="research__more">
+      <a class="btn btn--primary" href="research.html">← Read the findings</a>
+      <a class="btn btn--ghost" href="index.html">Back to home</a>
+      <a class="btn btn--ghost" href="resume.pdf">Download Résumé (PDF)</a>
+    </p>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Aasha Bhusal · Kathmandu, Nepal</p>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -239,13 +239,16 @@ strong { color: var(--ink); font-weight: 600; }
 .report__meta { color: var(--muted); font-size: var(--fs-sm); line-height: 1.9; }
 .report__meta strong { color: var(--ink); font-weight: 600; }
 
-.report-section { padding: var(--s-8) 0; border-top: 1px solid var(--line); max-width: 720px; }
+/* Full-width box so the divider spans the container; the prose inside is capped
+   to a readable measure by the grid in section 12, and .bleed children opt out. */
+.report-section { padding: var(--s-8) 0; border-top: 1px solid var(--line); }
 .report-section:first-of-type { border-top: none; }
 .report-section h2 { font-size: var(--fs-h2); margin-bottom: var(--s-4); }
 .report-section h3 { font-size: var(--fs-h3); margin: var(--s-6) 0 var(--s-3); color: var(--ink); }
 .report-section p { color: var(--body); margin-bottom: var(--s-4); }
 .report-section p:last-child { margin-bottom: 0; }
-.report-section ul { margin: 0 0 var(--s-4) var(--s-5); }
+.report-section ul,
+.report-section ol { margin: 0 0 var(--s-4) var(--s-5); }
 .report-section li { margin-bottom: var(--s-2); }
 
 /* comparison table */
@@ -266,7 +269,136 @@ strong { color: var(--ink); font-weight: 600; }
 .limitations { color: var(--muted); font-size: var(--fs-sm); }
 
 /* ============================================================
-   12. RESPONSIVE
+   12. FIGURES, WIDE BLOCKS, YEAR TABLES  (research + methods pages)
+   ============================================================ */
+
+/* Bank series colours, sampled from the chart PNGs so page and figures agree.
+   The raw hues are for swatches and rules only — on white they measure
+   4.4:1 and 3.2:1, so anything textual uses the darker -ink variants. */
+:root {
+  --nabil:     #2a78d6;
+  --rbb:       #eb6834;
+  --nabil-ink: #1b5296;
+  --rbb-ink:   #a8431a;
+}
+
+/* --- prose stays at 720px; figures and year tables run the full container ---
+   Track 1 holds the readable measure, track 2 soaks up the remaining ~160px.
+   Children sit in track 1 by default; .bleed spans both. Below ~900px the
+   second track collapses on its own, so no extra breakpoint is needed.
+   Applied to every .report-section so the section dividers all span the same
+   width — capping the box instead would make wide and narrow sections rule
+   at different lengths. */
+.report-section {
+  display: grid;
+  grid-template-columns:
+    [bleed-start prose-start] min(720px, 100%) [prose-end]
+    minmax(0, 1fr) [bleed-end];
+  scroll-margin-top: 84px;   /* anchor targets must clear the 66px sticky nav */
+}
+.report-section > *      { grid-column: prose-start / prose-end; min-width: 0; }
+.report-section > .bleed { grid-column: bleed-start / bleed-end; min-width: 0; }
+
+/* --- figures --- */
+.fig { margin: var(--s-5) 0 var(--s-6); }
+.fig img {
+  width: 100%; height: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-sm);
+}
+.fig figcaption {
+  margin-top: var(--s-3);
+  max-width: var(--measure);
+  font-size: var(--fs-xs); line-height: 1.6; color: var(--muted);
+}
+.fig figcaption b { color: var(--ink); font-weight: 700; }
+
+/* inline bank key, colour-matched to the charts */
+.k { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; white-space: nowrap; }
+.k::before { content: ""; width: 10px; height: 10px; border-radius: 3px; }
+.k--nabil { color: var(--nabil-ink); } .k--nabil::before { background: var(--nabil); }
+.k--rbb   { color: var(--rbb-ink);   } .k--rbb::before   { background: var(--rbb); }
+
+/* --- many-column year tables ---
+   Horizontal scroll is deliberate: reading a five-year series across is the
+   whole point, so these must not be card-stacked on mobile. The sticky first
+   column keeps the row label in view while scrolling. */
+.data-table caption {
+  caption-side: top; text-align: left;
+  padding: 12px 18px;
+  background: var(--bg-alt); border-bottom: 1px solid var(--line);
+  font-size: var(--fs-xs); font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--muted);
+}
+.data-table--years { min-width: 660px; font-variant-numeric: tabular-nums; }
+.data-table--years th,
+.data-table--years td { padding: 11px 15px; white-space: nowrap; }
+.data-table--years td,
+.data-table--years thead th + th { text-align: right; }
+/* non-numeric columns opt back out of the right-alignment, e.g. a "Bank" column */
+.data-table--years thead th.th-label,
+.data-table--years td.td-label { text-align: left; }
+.data-table--years thead th:first-child { position: sticky; left: 0; z-index: 2; background: var(--bg-alt); }
+.data-table--years tbody th:first-child { position: sticky; left: 0; z-index: 1; background: var(--bg); }
+.data-table--years tbody tr:hover th:first-child { background: var(--bg-tint); }
+.data-table--years tbody th[rowspan] { vertical-align: top; }
+.data-table--years tr.is-groupstart > * { border-top: 1px solid var(--line); }
+
+/* cell + row states */
+.data-table .n-nabil { color: var(--nabil-ink); }
+.data-table .n-rbb   { color: var(--rbb-ink); }
+.data-table .is-low  { color: var(--rbb-ink); font-weight: 700; }
+.data-table .is-key  { color: var(--ink); font-weight: 700; }
+.data-table tr.is-ref > *     { color: var(--muted); font-style: italic; font-weight: 400; }
+.data-table td.is-blank::after { content: "\2014"; color: var(--line); }
+
+.table-note {
+  font-size: var(--fs-xs); color: var(--muted);
+  margin: calc(-1 * var(--s-3)) 0 var(--s-5);
+}
+.table-note--hint { display: none; }
+@media (max-width: 760px) { .table-note--hint { display: block; } }
+
+/* --- table of contents --- */
+.toc {
+  max-width: 720px; margin: var(--s-7) 0 0;
+  padding: var(--s-5) var(--s-6);
+  background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.toc h2 {
+  font-family: var(--sans); font-size: var(--fs-xs); font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: var(--s-3);
+}
+.toc ol { margin: 0 0 0 var(--s-5); columns: 2; column-gap: var(--s-7); }
+.toc li { margin-bottom: var(--s-2); font-size: var(--fs-sm); break-inside: avoid; }
+
+/* --- findings / methods pill switcher --- */
+.report-nav { display: flex; gap: var(--s-2); flex-wrap: wrap; margin-top: var(--s-5); }
+.report-nav a {
+  font-size: var(--fs-sm); font-weight: 600; color: var(--muted);
+  padding: 7px 16px; border: 1px solid var(--line); border-radius: var(--r-pill);
+  background: #fff; transition: color .15s ease, border-color .15s ease;
+}
+.report-nav a:hover { color: var(--accent); border-color: var(--accent); }
+.report-nav a[aria-current="page"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* --- utility --- */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.skip-link:focus {
+  position: fixed; top: 10px; left: 10px; z-index: 100;
+  width: auto; height: auto; clip: auto; clip-path: none;
+  padding: 10px 18px; background: #fff; border: 1px solid var(--accent);
+  border-radius: var(--r-sm); font-size: var(--fs-sm); font-weight: 600;
+}
+
+/* ============================================================
+   13. RESPONSIVE
    ============================================================ */
 @media (max-width: 760px) {
   .stats { grid-template-columns: 1fr; }
@@ -281,6 +413,8 @@ strong { color: var(--ink); font-weight: 600; }
   .section__title--line::after { left: 50%; transform: translateX(-50%); }
   .contact__list li { flex-direction: column; gap: var(--s-1); }
   .contact__list li span:first-child { width: auto; }
+  .toc ol { columns: 1; }
+  .data-table--years th, .data-table--years td { padding: 9px 12px; }
 }
 @media (max-width: 400px) {
   .nav__links { gap: 14px; }
@@ -290,4 +424,14 @@ strong { color: var(--ink); font-weight: 600; }
 /* motion / print courtesy */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; }
+}
+
+@media print {
+  .nav, .toc, .report-nav, .research__more, .back-link, .table-note--hint { display: none; }
+  .report-section { display: block; }
+  .fig, .table-wrap, .callout { break-inside: avoid; }
+  .table-wrap { overflow: visible; box-shadow: none; }
+  .data-table--years { min-width: 0; font-size: var(--fs-xs); }
+  .data-table--years thead th:first-child,
+  .data-table--years tbody th:first-child { position: static; }
 }
